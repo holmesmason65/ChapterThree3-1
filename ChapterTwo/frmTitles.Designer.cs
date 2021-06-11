@@ -33,10 +33,10 @@ namespace ChapterTwo
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtPublisherID = new System.Windows.Forms.TextBox();
+            this.txtISBN = new System.Windows.Forms.TextBox();
+            this.txtYearPublished = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnSecond = new System.Windows.Forms.Button();
             this.btnThird = new System.Windows.Forms.Button();
@@ -84,33 +84,33 @@ namespace ChapterTwo
             this.label4.Text = "Publisher ID";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox1
+            // txtTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(157, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 23);
-            this.textBox1.TabIndex = 4;
+            this.txtTitle.Location = new System.Drawing.Point(157, 55);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(250, 23);
+            this.txtTitle.TabIndex = 4;
             // 
-            // textBox2
+            // txtPublisherID
             // 
-            this.textBox2.Location = new System.Drawing.Point(157, 156);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 23);
-            this.textBox2.TabIndex = 5;
+            this.txtPublisherID.Location = new System.Drawing.Point(157, 156);
+            this.txtPublisherID.Name = "txtPublisherID";
+            this.txtPublisherID.Size = new System.Drawing.Size(250, 23);
+            this.txtPublisherID.TabIndex = 5;
             // 
-            // textBox3
+            // txtISBN
             // 
-            this.textBox3.Location = new System.Drawing.Point(157, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 23);
-            this.textBox3.TabIndex = 6;
+            this.txtISBN.Location = new System.Drawing.Point(157, 123);
+            this.txtISBN.Name = "txtISBN";
+            this.txtISBN.Size = new System.Drawing.Size(250, 23);
+            this.txtISBN.TabIndex = 6;
             // 
-            // textBox4
+            // txtYearPublished
             // 
-            this.textBox4.Location = new System.Drawing.Point(157, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 23);
-            this.textBox4.TabIndex = 7;
+            this.txtYearPublished.Location = new System.Drawing.Point(157, 90);
+            this.txtYearPublished.Name = "txtYearPublished";
+            this.txtYearPublished.Size = new System.Drawing.Size(250, 23);
+            this.txtYearPublished.TabIndex = 7;
             // 
             // btnFirst
             // 
@@ -157,10 +157,10 @@ namespace ChapterTwo
             this.Controls.Add(this.btnThird);
             this.Controls.Add(this.btnSecond);
             this.Controls.Add(this.btnFirst);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtYearPublished);
+            this.Controls.Add(this.txtISBN);
+            this.Controls.Add(this.txtPublisherID);
+            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -179,14 +179,15 @@ namespace ChapterTwo
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtISBN;
+        private System.Windows.Forms.TextBox txtYearPublished;
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Button btnSecond;
         private System.Windows.Forms.Button btnThird;
         private System.Windows.Forms.Button btnFour;
+        private System.Windows.Forms.TextBox txtPublisherID;
     }
 }
 

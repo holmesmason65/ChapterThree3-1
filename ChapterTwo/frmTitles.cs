@@ -1,13 +1,9 @@
 ﻿/*
- * This exception occurs after the 30 second connection timeout
+ * Mason Holmes
+ * 6/16/2021
+ * This program provides a gui for navigating a database.
  * 
- * Exception Unhandled:
- * 
- * System.Data.SqlClient.SqlException: 'A network-related or instance-specific error occurred while 
- * establishing a connection to SQL Server. The server was not found or was not accessible. 
- * Verify that the instance name is correct and that SQL Server is configured to allow remote connections. 
- * (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)'
- * 
+ * outputs: - book name
  */
 
 using System;
@@ -21,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.IO; // added for relitive pathing
 
 namespace ChapterTwo
 {
@@ -31,18 +28,25 @@ namespace ChapterTwo
         {
             InitializeComponent();
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
         
         private void frmTitles_Load(object sender, EventArgs e)
         {
             
-            SqlConnection booksConnection = new SqlConnection(@"Data Source=.\SQLEXPRESS; 
-                            AttachDBFilename=C:\Users\mholmes022726\source\repos\ChapterTwo; 
-                            Integrated Security=TRUE; Connect Timeout=30; User Instance=True"); 
+            // connect to the books database
+            
+            // full path 
+            /*SqlConnection booksConnection = new SqlConnection(@"Data Source=.\SQLEXPRESS; 
+                            AttachDBFilename=C:\Users\mason\source\repos\Chapter 1\SQLBooksDB.mdf; 
+                            Integrated Security=TRUE; Connect Timeout=30; User Instance=True");*/
+
+            string dataBasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SQLBooksDB.mdf");
+
+            // relitive path 
+            SqlConnection booksConnection = new SqlConnection($@"Data Source=.\SQLEXPRESS; 
+                            AttachDBFilename={dataBasePath}; 
+                            Integrated Security=TRUE; Connect Timeout=30; User Instance=True");
+
+
             // open the connection
             booksConnection.Open();
 
@@ -60,18 +64,41 @@ namespace ChapterTwo
 
             // bind controls to data table
             txtTitle.DataBindings.Add("Text", titlesTable, "Title");
-            txtYearPublished.DataBindings.Add("Text", titlesTable, "Yeah_Published");
+            txtYearPublished.DataBindings.Add("Text", titlesTable, "Year_Published"); 
             txtISBN.DataBindings.Add("Text", titlesTable, "ISBN");
-            txtPublisherID.DataBindings.Add("Text", titlesTable, "PublisherID");
+            txtPublisherID.DataBindings.Add("Text", titlesTable, "PubID"); 
 
             // establish currentcy manager 
-            titlesManager = (CurrencyManager)BindingContext[titlesTable]; 
+            titlesManager = (CurrencyManager)BindingContext[titlesTable];
 
             // close the connection 
+            booksConnection.Close(); 
+
+            // dispose of the connection object
             booksConnection.Dispose();
             titlesCommand.Dispose();
             titlesAdapter.Dispose();
             titlesTable.Dispose();
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position = 0;
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position--; 
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position++;
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            titlesManager.Position = titlesManager.Count - 1;
         }
     }
 }

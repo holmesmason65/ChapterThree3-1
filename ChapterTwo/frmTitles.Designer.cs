@@ -38,9 +38,9 @@ namespace ChapterTwo
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.txtYearPublished = new System.Windows.Forms.TextBox();
             this.btnFirst = new System.Windows.Forms.Button();
-            this.btnSecond = new System.Windows.Forms.Button();
-            this.btnThird = new System.Windows.Forms.Button();
-            this.btnFour = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +82,6 @@ namespace ChapterTwo
             this.label4.Size = new System.Drawing.Size(94, 21);
             this.label4.TabIndex = 3;
             this.label4.Text = "Publisher ID";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtTitle
             // 
@@ -120,42 +119,46 @@ namespace ChapterTwo
             this.btnFirst.TabIndex = 8;
             this.btnFirst.Text = "&First";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
-            // btnSecond
+            // btnPrevious
             // 
-            this.btnSecond.Location = new System.Drawing.Point(135, 198);
-            this.btnSecond.Name = "btnSecond";
-            this.btnSecond.Size = new System.Drawing.Size(75, 23);
-            this.btnSecond.TabIndex = 9;
-            this.btnSecond.Text = "&Previous";
-            this.btnSecond.UseVisualStyleBackColor = true;
+            this.btnPrevious.Location = new System.Drawing.Point(135, 198);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.TabIndex = 9;
+            this.btnPrevious.Text = "&Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // btnThird
+            // btnNext
             // 
-            this.btnThird.Location = new System.Drawing.Point(235, 198);
-            this.btnThird.Name = "btnThird";
-            this.btnThird.Size = new System.Drawing.Size(75, 23);
-            this.btnThird.TabIndex = 10;
-            this.btnThird.Text = "&Next";
-            this.btnThird.UseVisualStyleBackColor = true;
+            this.btnNext.Location = new System.Drawing.Point(235, 198);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 10;
+            this.btnNext.Text = "&Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // btnFour
+            // btnLast
             // 
-            this.btnFour.Location = new System.Drawing.Point(332, 198);
-            this.btnFour.Name = "btnFour";
-            this.btnFour.Size = new System.Drawing.Size(75, 23);
-            this.btnFour.TabIndex = 11;
-            this.btnFour.Text = "&Last";
-            this.btnFour.UseVisualStyleBackColor = true;
+            this.btnLast.Location = new System.Drawing.Point(332, 198);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(75, 23);
+            this.btnLast.TabIndex = 11;
+            this.btnLast.Text = "&Last";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // frmTitles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 290);
-            this.Controls.Add(this.btnFour);
-            this.Controls.Add(this.btnThird);
-            this.Controls.Add(this.btnSecond);
+            this.Controls.Add(this.btnLast);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.txtYearPublished);
             this.Controls.Add(this.txtISBN);
@@ -184,9 +187,9 @@ namespace ChapterTwo
         private System.Windows.Forms.TextBox txtISBN;
         private System.Windows.Forms.TextBox txtYearPublished;
         private System.Windows.Forms.Button btnFirst;
-        private System.Windows.Forms.Button btnSecond;
-        private System.Windows.Forms.Button btnThird;
-        private System.Windows.Forms.Button btnFour;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.TextBox txtPublisherID;
     }
 }

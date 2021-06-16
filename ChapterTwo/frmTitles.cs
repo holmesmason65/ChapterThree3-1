@@ -3,7 +3,10 @@
  * 6/16/2021
  * This program provides a gui for navigating a database.
  * 
- * outputs: - book name
+ * outputs: - txtTitle : TextBox, displays book title 
+ *          - txtYearPublished : TextBox, displays year book was published
+ *          - txtISBN : TextBox, displays book ISBN number
+ *          - txtPublisherID TextBox, displays book publisher ID
  */
 
 using System;
